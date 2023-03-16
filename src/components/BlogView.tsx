@@ -1,9 +1,7 @@
 import {} from 'react';
 import { Feed } from './Feed';
 
-type Props = {};
-
-export const BlogView = (props: Props) => {
+export const BlogView = () => {
 	return (
 		<section className="min-h-screen mx-auto w-full">
 			<section>

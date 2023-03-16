@@ -36,7 +36,3 @@ function createFeed() {
 		tag: faker.random.word()
 	};
 }
-
-function* generator(fn) {
-	yield fn();
-}

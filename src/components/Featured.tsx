@@ -1,9 +1,7 @@
-import {} from 'react';
+import { useState } from 'react';
 import { blogs } from '../fakedb/blogs';
 
-type Props = {};
-
-export const Featured = (props: Props) => {
+export const Featured = () => {
 	return (
 		<section className="mt-5 max-w-6xl mx-auto">
 			<div className="flex text-xl flex-row p-2 align-middle justify-start ml-4">
@@ -25,33 +23,54 @@ export const Featured = (props: Props) => {
 			</div>
 			<section className="flex flex-wrap flex-row p-2 items-start justify-evenly ml-4 mx-auto [&>div]:basis-80">
 				{blogs.slice(0, 6).map((blog, index) => {
+					const ranking = index + 1;
 					return (
-						<div
+						<FeaturedCard
 							key={index}
-							className="flex flex-row m-auto p-2 min-h-[8rem] "
-						>
-							<span className="min-w-[3rem] font-bold text-4xl text-accent relative -top-1 left-3">
-								{index + 1}
-							</span>
-							<article className="max-w-xs flex flex-col justify-between">
-								<div className="flex">
-									<img
-										width={10}
-										className="w-10 h-10 p-2 rounded-full my-auto image-full"
-										alt="Profile Picture"
-										src={blog.profile}
-									/>
-									<h3 className="ml-2 font-semibold text-base font-serif">{blog.author}</h3>
-								</div>
-								<h4 className="font-semibold">{blog.title}</h4>
-								<span className="font-light text-sm align-top -tracking-wide">
-									{new Date(blog.date).toDateString()}
-								</span>
-							</article>
-						</div>
+							data={blog}
+							ranking={ranking}
+						/>
 					);
 				})}
 			</section>
 		</section>
 	);
 };
+
+type Blog = {
+	profile: string;
+	author: string;
+	title: string;
+	date: string;
+};
+
+type CardProps = {
+	data: Blog;
+	ranking: number;
+};
+
+function FeaturedCard({ data, ranking }: CardProps) {
+	const { profile, author, title, date } = data;
+	return (
+		<div className="flex flex-row m-auto p-2 min-h-[8rem] ">
+			<span className="min-w-[3rem] font-bold text-4xl text-accent relative -top-1 left-3">
+				{ranking}
+			</span>
+			<article className="max-w-xs flex flex-col justify-between">
+				<div className="flex">
+					<img
+						width={10}
+						className="w-10 h-10 p-2 rounded-full my-auto image-full"
+						alt="Profile Picture"
+						src={profile}
+					/>
+					<h3 className="ml-2 font-semibold text-base font-serif">{author}</h3>
+				</div>
+				<h4 className="font-semibold">{title}</h4>
+				<span className="font-light text-sm align-top -tracking-wide">
+					{new Date(date).toDateString()}
+				</span>
+			</article>
+		</div>
+	);
+}
