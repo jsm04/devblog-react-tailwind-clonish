@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { cropContent } from '../utils/cropContent';
+import { cropContent } from '../utils/utilities';
 import { FeedActions } from './FeedActions';
 
 type Post = {
@@ -22,7 +22,7 @@ export const FeedCard = ({ data, key }: Props) => {
 
 	return (
 		<div
-			key={key}
+			key={Date.now()}
 			className="mt-6"
 		>
 			<div className="flex">

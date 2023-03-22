@@ -4,7 +4,7 @@ type Props = {};
 
 export const Footer = (props: Props) => {
 	return (
-		<footer className="footer text-neutral-content mt-4 ">
+		<footer className="footer mt-4 ">
 			<div>
 				<span className="footer-title">Legal</span>
 				<a className="link link-hover">Terms of use</a>
@@ -13,7 +13,7 @@ export const Footer = (props: Props) => {
 			</div>
 			<div>
 				<span className="footer-title">Social</span>
-				<div className="grid grid-flow-col gap-4">
+				<div className="grid grid-flow-col gap-4 ">
 					<a>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"

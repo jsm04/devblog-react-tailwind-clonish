@@ -1,11 +1,29 @@
-import {} from 'react';
+import { useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { feed } from '../fakedb/feed';
+
 import { FeedCard } from './FeedCard';
+import { ScrollTop } from './ScrollTop';
+import { Spinner } from './Spinner';
 
 export const Feed = () => {
+	const memoizedFeed = useMemo(() => {
+		const data = feed.map((post, idx) => {
+			return (
+				<Link to={`/blog/${idx}`}>
+					<FeedCard
+						data={post}
+						key={Date.now()}
+					/>
+				</Link>
+			);
+		});
+		return data;
+	}, [feed]);
+
 	return (
 		<section className="max-w-[728px] min-h-screens md:ml-8 lg:ml:0 pr-20">
-			<div className="min-h-12 bg-base-100 w-full inline-flex [&>*]:mr-4 border-b border-gray-600 sticky top-0">
+			<div className="min-h-12 bg-base-100 w-full inline-flex [&>*]:mr-4 border-b border-gray-600 sticky top-0 ">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
@@ -33,14 +51,7 @@ export const Feed = () => {
 					Following
 				</button>
 			</div>
-			{feed.map((post, idx) => {
-				return (
-					<FeedCard
-						data={post}
-						key={idx}
-					/>
-				);
-			})}
+			<ScrollTop>{memoizedFeed}</ScrollTop>
 		</section>
 	);
 };
