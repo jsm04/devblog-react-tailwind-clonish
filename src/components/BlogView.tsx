@@ -1,5 +1,6 @@
-import {} from 'react';
+import { Suspense, lazy } from 'react';
 import { Feed } from './Feed';
+import { Spinner } from './Spinner';
 
 export const BlogView = () => {
 	return (

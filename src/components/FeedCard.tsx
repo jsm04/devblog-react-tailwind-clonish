@@ -1,6 +1,7 @@
-import { useMemo } from 'react';
+import { Suspense, useMemo } from 'react';
 import { cropContent } from '../utils/utilities';
 import { FeedActions } from './FeedActions';
+import { Spinner } from './Spinner';
 
 type Post = {
 	profile: string;
@@ -13,10 +14,9 @@ type Post = {
 
 type Props = {
 	data: Post;
-	key: number;
 };
 
-export const FeedCard = ({ data, key }: Props) => {
+export const FeedCard = ({ data }: Props) => {
 	const { profile, title, content, tag, readTime, image } = data;
 	const cachedContent = useMemo(() => cropContent(content), [content]);
 

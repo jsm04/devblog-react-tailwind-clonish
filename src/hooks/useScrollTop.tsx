@@ -1,11 +1,7 @@
-import { ReactNode, useEffect, useLayoutEffect } from 'react';
+import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-type Props = {
-	children: ReactNode;
-};
-
-export function ScrollTop({ children }: Props) {
+export const useScrollTop = () => {
 	const { pathname } = useLocation();
 
 	useEffect(() => {
@@ -15,6 +11,4 @@ export function ScrollTop({ children }: Props) {
 			behavior: 'instant'
 		});
 	}, [pathname]);
-
-	return <>{children}</>;
-}
+};

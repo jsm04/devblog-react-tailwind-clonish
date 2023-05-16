@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 import { Discover } from './Discover';
 import { Footer } from './Footer';
-import { Spinner } from './Spinner';
 
 export const Aside = () => {
 	return (
