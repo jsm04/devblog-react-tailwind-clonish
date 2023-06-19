@@ -32,20 +32,30 @@ const lightIcon = (
 	</svg>
 );
 
+type docElem = typeof document.documentElement;
+
 export const useDarkTheme = () => {
-	const targetRef = useRef(document.documentElement);
-	const evalRef = targetRef.current.getAttribute('data-theme') === 'light';
-	const [isDarkTheme, setIsDarkTheme] = useState<boolean>(evalRef);
-	const evaluateIcon = isDarkTheme ? lightIcon : darkIcon;
-	const [icon, setIcon] = useState(evaluateIcon);
+	const ref = useRef<docElem | null>(null);
+
+	if (!ref.current) {
+		ref.current = document.documentElement;
+	}
+
+	const detectTheme = ref.current.getAttribute('data-theme') === 'light';
+
+	const [isDarkTheme, setIsDarkTheme] = useState<boolean>(detectTheme);
+
+	const chooseIcon = isDarkTheme ? lightIcon : darkIcon;
+
+	const [icon, setIcon] = useState(chooseIcon);
 
 	const toggleTheme = () => {
 		setIsDarkTheme(!isDarkTheme);
 	};
 
 	useEffect(() => {
-		targetRef.current.setAttribute('data-theme', isDarkTheme ? 'light' : 'dark');
-		setIcon(evaluateIcon);
+		ref.current!.setAttribute('data-theme', isDarkTheme ? 'light' : 'dark');
+		setIcon(chooseIcon);
 	}, [isDarkTheme]);
 
 	return [toggleTheme, icon] as const;

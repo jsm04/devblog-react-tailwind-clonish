@@ -18,7 +18,7 @@ export const BlogView = () => {
 					</div>
 				</div>
 			</section>
-			<article className="prose text-justify mb-10">
+			<article className="ml-10 prose text-justify mb-10">
 				<h2 className="font-extrabold text-3xl text-justify">
 					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus, voluptates!
 				</h2>

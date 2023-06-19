@@ -64,7 +64,7 @@ function FeaturedCard({ data, ranking }: CardProps) {
 						alt="Profile Picture"
 						src={profile}
 					/>
-					<h3 className="ml-2 font-semibold text-base font-serif">{author}</h3>
+					<h3 className="ml-2 font-semibold text-base font-serif">{author}!</h3>
 				</div>
 				<h4 className="font-semibold">{title}</h4>
 				<span className="font-light text-sm align-top -tracking-wide">
