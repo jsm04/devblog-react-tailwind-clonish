@@ -1,6 +1,8 @@
 # Blog Prototype
 
-This is a fast demo project created to try out new techniques and showcase prototyping styling skills I made some while ago. The project mimics a blog platform's user interface. My focus during development was to create a cool layout clone of a given blog, without overthinking the details. It’s a simple mock UI to demonstrate skills in frontend development.
+This is a fast demo project created to try out new techniques and showcase prototyping styling skills I made some while ago. The project mimics a blog platform's user interface. My focus during development was to create a cool layout clone of a given blog, without overthinking the details. It’s a simple mock UI to demonstrate skills in frontend development. Some styles might look weird cause of some changes over tailwinds versions update overtime (this was made a time ago, hope you understand).
+
+![Landing Screenshot](landing.png)
 
 ## Tech Stack ⚙️
 
