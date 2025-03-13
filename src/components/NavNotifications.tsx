@@ -7,7 +7,7 @@ export const Notifications = (props: Props) => {
 		<div className="dropdown dropdown-end">
 			<label
 				tabIndex={0}
-				className="btn btn-ghost btn-circle"
+				className="btn btn-circle"
 			>
 				<div className="indicator">
 					<svg

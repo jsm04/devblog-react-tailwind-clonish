@@ -4,7 +4,7 @@ import { Spinner } from './Spinner';
 
 export const BlogView = () => {
 	return (
-		<section className="min-h-screen mx-auto w-full">
+		<section className="flex-grow min-h-screen mx-auto w-full">
 			<section>
 				<div className="flex">
 					<img

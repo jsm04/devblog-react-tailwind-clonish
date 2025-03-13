@@ -13,7 +13,7 @@ export const Navbar = () => {
 				<div className="dropdown">
 					<label
 						tabIndex={0}
-						className="btn btn-ghost btn-circle"
+						className="btn btn-circle"
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +46,7 @@ export const Navbar = () => {
 				</div>
 				<Link
 					to="/"
-					className="btn btn-ghost text-accent normal-case text-4xl font-sans"
+					className="btn text-accent normal-case text-4xl font-sans"
 				>
 					Blogger
 				</Link>

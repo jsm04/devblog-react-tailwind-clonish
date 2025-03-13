@@ -2,18 +2,10 @@ import { Suspense, useMemo } from 'react';
 import { cropContent } from '../utils/utilities';
 import { FeedActions } from './FeedActions';
 import { Spinner } from './Spinner';
-
-type Post = {
-	profile: string;
-	title: string;
-	content: string;
-	tag: string;
-	readTime: string;
-	image: string;
-};
+import { Article } from '../types';
 
 type Props = {
-	data: Post;
+	data: Article;
 };
 
 export const FeedCard = ({ data }: Props) => {
@@ -27,15 +19,14 @@ export const FeedCard = ({ data }: Props) => {
 		>
 			<div className="flex">
 				<img
-					width={10}
-					className="w-10 h-10 p-2 rounded-full my-auto image-full"
+					className="w-12 h-12 object-cover rounded-full border-2 border-gray-300 shadow-sm"
 					alt="Profile Picture"
 					src={profile}
 				/>
 				<h3 className="ml-2 font-semibold text-base font-serif">{title}</h3>
 			</div>
 			<div className="flex">
-				<div className="flex flex-col justify-evenly min-h-16 basis-4/6">
+				<div className="flex flex-col justify-evenly min-h-16 basis-7/10">
 					<p className="break-words">
 						{cachedContent}
 						<span>...</span>
@@ -53,11 +44,14 @@ export const FeedCard = ({ data }: Props) => {
 						<FeedActions />
 					</div>
 				</div>
-				<img
-					className="ml-auto aspect-square h-28"
-					src={image}
-					alt=""
-				/>
+				<div className="ml-auto h-28 w-28 rounded-lg shadow-md bg-gray-200 flex items-center justify-center">
+					<img
+						className="h-full w-full object-cover rounded-lg"
+						src={image}
+						alt=""
+					/>
+				</div>
+	
 			</div>
 		</div>
 	);

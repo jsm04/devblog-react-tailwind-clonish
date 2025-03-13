@@ -1,4 +1,6 @@
 @import 'tailwindcss';
+@plugin "daisyui";
+@plugin "@tailwindcss/typography";
 
 :root {
 	text-rendering: optimizeLegibility;
@@ -8,6 +10,6 @@
 
 @layer utilities {
 	.svg-clickable {
-		@apply w-7 h-7 btn-ghost btn-circle cursor-pointer px-[2px];
+		@apply w-7 h-7 cursor-pointer px-[2px];
 	}
 }

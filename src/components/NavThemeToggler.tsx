@@ -8,7 +8,7 @@ export function ThemeToggler() {
 		<button
 			title="Theme toggler"
 			type="button"
-			className="btn btn-ghost btn-circle"
+			className="btn btn-circle"
 			onClick={toggleTheme}
 		>
 			{icon}

@@ -1,31 +1,20 @@
 import { Suspense, lazy, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { feed } from '../fakedb/feed';
 import { useFetch } from '../hooks/useFetch';
 import { useScrollTop } from '../hooks/useScrollTop';
 import { FeedCard } from './FeedCard';
 import { Spinner } from './Spinner';
+import { Article, DbRecord } from '../types';
 
-const feedURI = '/feed.json';
-
-type Feed = {
-	profile: string;
-	date: string;
-	author: string;
-	title: string;
-	image: string;
-	content: string;
-	readTime: string;
-	tag: string;
-};
+const feedURL = '/feed.json';
 
 export const Feed = () => {
-	const { data, isLoading, error } = useFetch<Feed[] | null, unknown>(feedURI);
+	const { data } = useFetch<DbRecord<Article>[] | null, unknown>(feedURL);
 
 	useScrollTop();
 
 	return (
-		<section className="max-w-[728px] min-h-screens md:ml-8 lg:ml:0 pr-20">
+		<section className="max-w-[728px] min-h-screens md:ml-8 lg:ml:0 sm:pr-0">
 			<div className="min-h-12 bg-base-100 w-full inline-flex [&>*]:mr-4 border-b border-gray-600 sticky top-0 ">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +48,7 @@ export const Feed = () => {
 				data.map((post, idx) => {
 					return (
 						<Link
-							key={Math.random()}
+							key={post.id}
 							to={`/blog/${idx}`}
 						>
 							<FeedCard data={post} />

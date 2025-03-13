@@ -7,7 +7,7 @@ export const NavProfile = (props: Props) => {
 		<div className="dropdown dropdown-end">
 			<label
 				tabIndex={0}
-				className="btn btn-ghost btn-circle avatar"
+				className="btn btn-circle avatar"
 			>
 				<div className="w-7/12 rounded-full">
 					<img
